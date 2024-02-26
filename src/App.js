@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import TodosList from './features/todos/TodosList';
+import UsersList from './features/axe-throw/UsersList.jsx';
+
+// _app.tsx or index.tsx
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import ReactQueryExample from './components/Github';
+
+// create instance of react query client
+const queryClient = new QueryClient();
 
 function App() {
   return (
+    <QueryClientProvider client={queryClient}> {/* provide query client to overAll project */}
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <TodosList /> */}
+      <ReactQueryExample />
+      {/* <UsersList /> */}
     </div>
+    </QueryClientProvider>
   );
 }
 
 export default App;
+
+
